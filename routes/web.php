@@ -67,6 +67,19 @@ Route::get("/hizmetler",function(){
 return view('sayfalar.hizmetler');
 });
 
+Route::get("/resim",function(){
+/*  $img = Image::make('499.jpg')->resize(300,300);
+  $img->save("php_oran.jpg");
+  return $img->response('jpg');*/
+$img = Image::make('yeniresim.jpg')->greyscale();
+return $img->response('jpg');
+  //return view('resim');
+});
+
+Route::post("/yukle",function(){
+  Image::make(request()->file('resim'))->resize(300,300)->save('yeniresim.jpg');
+})->name('yukle');
+
 
 
 
