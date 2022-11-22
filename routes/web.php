@@ -45,15 +45,27 @@ Route::get("/modelsil",[Modelislemleri::class,'sil']);
 Route::get("/iletisim",[Iletisim::class,'index']);
 Route::post("/iletisim-sonuc",[Iletisim::class,'ekleme'])->name('iletisim-sonuc');
 Route::get("/upload",function(){
-  return view('upload');
+return view('upload');
 });
 
 Route::post("/resim-ilet",[ResimYukle::class,'resimYukleme'])->name('yukle');
 
 Route::get("/uye",function(){
-  return view('uyelik');
-  });
+return view('uyelik');
+});
 Route::post('/uye-kayit',[App\Http\Controllers\Uyelikislemleri::class,'uyekayit'])->name('uyekayit');//yukarı use alanına yazmadan bu şekilde de yapabiiriz.
+
+Route::get("/tema",function(){
+return view('sayfalar.home');
+});
+
+Route::get("/galeri",function(){
+return view('sayfalar.galeri');
+});
+
+Route::get("/hizmetler",function(){
+return view('sayfalar.hizmetler');
+});
 
 
 
