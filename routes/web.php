@@ -7,6 +7,8 @@ use App\Http\Controllers\FormIslemleri;
 use App\Http\Controllers\Veritabaniislemleri;
 use App\Http\Controllers\Modelislemleri;
 use App\Http\Controllers\Iletisim;
+use App\Http\Controllers\ResimYukle;
+
 
 
 
@@ -41,6 +43,11 @@ Route::get("/modelguncelle",[Modelislemleri::class,'guncelle']);
 Route::get("/modelsil",[Modelislemleri::class,'sil']);
 Route::get("/iletisim",[Iletisim::class,'index']);
 Route::post("/iletisim-sonuc",[Iletisim::class,'ekleme'])->name('iletisim-sonuc');
+Route::get("/upload",function(){
+  return view('upload');
+});
+
+Route::post("/resim-ilet",[ResimYukle::class,'resimYukleme'])->name('yukle');
 
 
 
