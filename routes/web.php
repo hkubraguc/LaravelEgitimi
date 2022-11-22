@@ -15,6 +15,7 @@ use App\Http\Controllers\ResimYukle;
 
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -48,6 +49,12 @@ Route::get("/upload",function(){
 });
 
 Route::post("/resim-ilet",[ResimYukle::class,'resimYukleme'])->name('yukle');
+
+Route::get("/uye",function(){
+  return view('uyelik');
+  });
+Route::post('/uye-kayit',[App\Http\Controllers\Uyelikislemleri::class,'uyekayit'])->name('uyekayit');//yukarı use alanına yazmadan bu şekilde de yapabiiriz.
+
 
 
 
